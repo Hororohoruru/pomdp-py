@@ -86,6 +86,10 @@ cdef class POMCP(POUCT):
         belief."""
         return True
 
+    @property
+    def max_depth(self):
+        return self._max_depth
+
     def plan(self, agent):
         # Only works if the agent's belief is particles
         if not isinstance(agent.belief, Particles):

@@ -222,6 +222,26 @@ cdef class POUCT(Planner):
         """Returns the amount of time (seconds) ran for the last `plan` call."""
         return self._last_planning_time
 
+    @property
+    def max_depth(self):
+        """Returns the maximum depth of the MCTS tree."""
+        return self._max_depth
+
+    @property
+    def discount_factor(self):
+        """Returns the discount factor."""
+        return self._discount_factor
+
+    @property
+    def agent(self):
+        """Returns the agent that the planner is planning for."""
+        return self._agent
+
+    @property
+    def rollout_policy(self):
+        """Returns the rollout policy."""
+        return self._rollout_policy
+
     cpdef public plan(self, Agent agent):
         cdef Action action
         cdef float time_taken
